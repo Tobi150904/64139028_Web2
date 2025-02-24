@@ -16,6 +16,5 @@
 	<h2>Hoac ta co the xuat kieu Expression</h2>
 	<%="Ket qua la:" %>
 	<%= z %>
-	
 </body>
 </html>
