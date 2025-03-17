@@ -1,37 +1,25 @@
 package nvh.controllers;
 
-import java.util.ArrayList;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import nvh.models.SinhVien;
 
-import nvh.model.SinhVien;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
-public class info_controller {	
-	@GetMapping("/info")
-	public String info(Model model) {
-		SinhVien sv = new SinhVien("64139028", "Ngo Viet Hoang", 2004, "Nam");
-		model.addAttribute("sv", sv);
-		return "info";
-	}
-	
-	public ArrayList<SinhVien> getData() {
-		ArrayList<SinhVien> dsSV = new ArrayList<SinhVien>();
-        dsSV.add(new SinhVien("64139028", "Ngo Viet Hoang", 2004, "Nam"));
-        dsSV.add(new SinhVien("64139029", "Nguyen Van A", 2004, "Nam"));
-        dsSV.add(new SinhVien("64139030", "Tran Thi B", 2004, "Nu"));
+public class info_controller {
+
+    @GetMapping("/info")
+    public String info(Model model) {
+        List<SinhVien> studentList = new ArrayList<>();
+        studentList.add(new SinhVien("64139028", "Ngô Việt Hoàng", 2004, "Nam"));
+        studentList.add(new SinhVien("64139029", "Nguyễn Thị Mai", 2003, "Nữ"));
+        studentList.add(new SinhVien("64139030", "Phạm Minh Tuấn", 2004, "Nam"));
+        studentList.add(new SinhVien("64139031", "Trần Thị Lan", 2003, "Nữ"));
         
-        return dsSV;
-	}
-	
-	@GetMapping("/info2")
-	public String info2(Model model) {
-        ArrayList<SinhVien> dsSV = new ArrayList<SinhVien>();
-        dsSV = getData();
-        
-    	model.addAttribute("dsSV", dsSV);
-        return "info2";
-	}
+        model.addAttribute("studentList", studentList);
+        return "info"; 
+    }
 }
