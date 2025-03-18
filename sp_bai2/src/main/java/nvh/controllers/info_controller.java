@@ -3,6 +3,9 @@ package nvh.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import nvh.models.SinhVien;
 
 import java.util.ArrayList;
@@ -22,4 +25,16 @@ public class info_controller {
         model.addAttribute("studentList", studentList);
         return "info"; 
     }
+    
+	@GetMapping("/home")
+	public String showHomePage(Model model) {
+	    model.addAttribute("name", "Ngô Việt Hoàng");
+	    return "home";
+	}
+	
+	@PostMapping("/home")
+	public String handleFormSubmission(@RequestParam("name") String name, Model model) {
+	    model.addAttribute("name", name);
+	    return "result";
+	}
 }
