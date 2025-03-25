@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+</head>
+<body>
+    <th:block th:replace="~{fragments/header :: header}"></th:block>
+
+    <div class="container content">
+        <section>
+            <h2>Giới thiệu về trang web</h2>
+            <p>Trang web này được xây dựng nhằm mục đích quản lý thông tin sinh viên.</p>
+            <p>Các chức năng chính bao gồm:</p>
+            <ul>
+                <li>Xem danh sách sinh viên</li>
+                <li>Thông tin liên hệ</li>
+                <li>Ví dụ về hashCode trong Java</li>
+            </ul>
+            <div class="mt-4">
+                <h3>Mục tiêu</h3>
+                <p>Trang web được phát triển để minh họa cách sử dụng Spring Boot kết hợp với Thymeleaf để tạo ứng dụng web với các thành phần tái sử dụng.</p>
+            </div>
+        </section>
+        <aside>
+            <img src="/images/img1.jpg" alt="Student Image" th:src="@{/images/img1.jpg}">
+            <p>Ảnh minh họa sinh viên</p>
+        </aside>
+    </div>
+
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+</body>
+</html>
