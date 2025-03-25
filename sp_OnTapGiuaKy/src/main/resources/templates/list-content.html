@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h1 class="card-title mb-0">Danh Sách Sinh Viên</h1>
+            <a href="/add" class="btn btn-success">Thêm Mới</a>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>MSSV</th>
+                        <th>Tên</th>
+                        <th>Điểm</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="sv : ${danhSachSV}">
+                        <td th:text="${sv.mssv}"></td>
+                        <td th:text="${sv.ten}"></td>
+                        <td th:text="${sv.diem}"></td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(danhSachSV)}">
+                        <td colspan="3" class="text-center">Chưa có sinh viên nào</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,56 +1,50 @@
 package nvh.controllers;
 
-import nvh.models.Student;
+import nvh.models.SinhVien;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class SinhVien_controller {
+    private List<SinhVien> danhSachSV = new ArrayList<>();
 
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("title", "Trang chủ");
-        return "home";
+        model.addAttribute("title", "Trang Chủ");
+        model.addAttribute("contentPage", "home-content.html");
+        return "layout";
     }
 
     @GetMapping("/about")
     public String about(Model model) {
-        model.addAttribute("title", "Giới thiệu");
-        return "about";
+        model.addAttribute("title", "Giới Thiệu");
+        model.addAttribute("contentPage", "about-content.html");
+        return "layout";
     }
 
     @GetMapping("/list")
     public String list(Model model) {
-        List<Student> students = Arrays.asList(
-            new Student("SV001", "Nguyễn Văn A", "Hà Nội"),
-            new Student("SV002", "Trần Thị B", "Hồ Chí Minh"),
-            new Student("SV003", "Lê Văn C", "Đà Nẵng")
-        );
-        model.addAttribute("title", "Danh sách sinh viên");
-        model.addAttribute("students", students);
-        return "list";
+        model.addAttribute("title", "Danh Sách Sinh Viên");
+        model.addAttribute("contentPage", "list-content.html");
+        model.addAttribute("danhSachSV", danhSachSV);
+        return "layout";
     }
 
-    @GetMapping("/address")
-    public String address(Model model) {
-        model.addAttribute("title", "Địa chỉ");
-        return "address";
+    @GetMapping("/add")
+    public String showAddForm(Model model) {
+        model.addAttribute("title", "Thêm Sinh Viên");
+        model.addAttribute("contentPage", "add-content.html");
+        model.addAttribute("sinhVien", new SinhVien());
+        return "layout";
     }
 
-    @GetMapping("/sinhvien-hashcode")
-    public String sinhVienHashCode(Model model) {
-        Student student1 = new Student("SV001", "Nguyễn Văn A", "Hà Nội");
-        Student student2 = new Student("SV001", "Nguyễn Văn A", "Hà Nội");
-        
-        model.addAttribute("title", "Sinh viên HashCode");
-        model.addAttribute("student1", student1);
-        model.addAttribute("student2", student2);
-        model.addAttribute("hash1", student1.hashCode());
-        model.addAttribute("hash2", student2.hashCode());
-        return "sinhvien-hashcode";
+    @PostMapping("/add")
+    public String addSinhVien(@ModelAttribute SinhVien sinhVien) {
+        danhSachSV.add(sinhVien);
+        return "redirect:/list";
     }
 }
