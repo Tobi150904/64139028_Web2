@@ -62,6 +62,4 @@ public class Topic {
 		return "Topic [id=" + id + ", topicName=" + topicName + ", topicDescription=" + topicDescription
 				+ ", supervisorId=" + supervisorId + ", topicType=" + topicType + "]";
 	}
-	
-	
 }
