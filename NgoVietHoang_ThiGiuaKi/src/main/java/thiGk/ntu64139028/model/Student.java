@@ -1,7 +1,7 @@
 package thiGk.ntu64139028.model;
 
 public class Student {
-	public String id;
+	public int id;
 	public String name;
 	public String groupId;
 	
@@ -9,18 +9,18 @@ public class Student {
 		super();
 	}
 	
-	public Student(String id, String name, String groupId) {
+	public Student(int id, String name, String groupId) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.groupId = groupId;
 	}
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 	
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	
@@ -51,7 +51,7 @@ public class Student {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((groupId == null) ? 0 : groupId.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}

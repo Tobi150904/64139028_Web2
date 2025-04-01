@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 bg-dark text-white min-vh-100">
+                <div class="p-3">
+                    <h4 class="text-center mb-4" th:text="${studentName}"></h4>
+                    <hr>
+                    <h5>Dashboard</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/topic/all">Topic - List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/topic/new">Topic - Addnew</a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <h5>Content</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/student/all">Student - List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/student/new">Student - Addnew</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Main content -->
+            <div class="col-md-9 col-lg-10 p-4">
+                <h2>Welcome to Dashboard</h2>
+                <p>This is your CV content goes here...</p>
+                
+                <footer class="mt-5 text-center">
+                    <p>©2025 by <span th:text="${studentName}"></span> - FIT.NTU</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
