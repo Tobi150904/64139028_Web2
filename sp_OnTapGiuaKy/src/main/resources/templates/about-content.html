@@ -1,18 +1,76 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-    <div class="card">
-        <div class="card-header">
-            <h1 class="card-title">Giới Thiệu</h1>
+    <div class="card border-0 shadow-lg">
+        <div class="card-header bg-gradient-primary text-white">
+            <h3 class="card-title mb-0">
+                <i class="fas fa-info-circle me-2"></i>
+                Giới Thiệu Hệ Thống
+            </h3>
         </div>
         <div class="card-body">
-            <p class="card-text">
-                Hệ thống Quản Lý Sinh Viên được phát triển bằng Spring Boot và Bootstrap,
-                nhằm mục đích hỗ trợ quản lý thông tin sinh viên một cách hiệu quả.
-            </p>
-            <p>Phiên bản: 1.0.0</p>
-            <p>Ngày phát triển: 24/03/2025</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-graduation-cap me-2"></i> Thông tin hệ thống</h5>
+                    <p class="card-text">
+                        Hệ thống Quản Lý Sinh Viên được phát triển bằng Spring Boot và Bootstrap,
+                        nhằm mục đích hỗ trợ quản lý thông tin sinh viên một cách hiệu quả.
+                    </p>
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item">
+                            <i class="fas fa-code me-2"></i> Phiên bản: 1.0.0
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-calendar me-2"></i> Ngày phát triển: 24/03/2025
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-user me-2"></i> Tác giả: Nguyễn Văn A
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-chart-pie me-2"></i>Thống kê điểm sinh viên</h5>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="scoreChart" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('scoreChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Xuất sắc (8-10)', 'Khá (6.5-7.9)', 'Trung bình (5-6.4)', 'Yếu (<5)'],
+                    datasets: [{
+                        data: [12, 19, 8, 3],
+                        backgroundColor: [
+                            '#2ecc71',
+                            '#3498db',
+                            '#f39c12',
+                            '#e74c3c'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-    <div class="card">
-        <div class="card-header">
-            <h1 class="card-title">Chào mừng đến với Hệ thống Quản Lý Sinh Viên</h1>
+    <div class="card border-0 shadow-lg">
+        <div class="card-header bg-gradient-primary text-white">
+            <h3 class="card-title mb-0">
+                <i class="fas fa-home me-2"></i>
+                Chào mừng đến với Hệ thống Quản Lý Sinh Viên
+            </h3>
         </div>
         <div class="card-body">
             <p class="card-text">Đây là hệ thống quản lý thông tin sinh viên hiện đại với các tính năng:</p>
-            <ul>
-                <li>Xem danh sách sinh viên</li>
-                <li>Thêm sinh viên mới</li>
-                <li>Tìm hiểu thông tin hệ thống</li>
-            </ul>
-            <a href="/list" class="btn btn-primary">Xem Danh Sách</a>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-box p-3 border rounded text-center h-100 hover-effect">
+                        <i class="fas fa-list fa-3x text-primary mb-3"></i>
+                        <h4>Danh sách SV</h4>
+                        <p>Xem toàn bộ danh sách sinh viên trong hệ thống</p>
+                        <a href="/list" class="btn btn-sm btn-outline-primary mt-2">Xem ngay</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box p-3 border rounded text-center h-100 hover-effect">
+                        <i class="fas fa-plus-circle fa-3x text-success mb-3"></i>
+                        <h4>Thêm mới</h4>
+                        <p>Thêm sinh viên mới vào hệ thống</p>
+                        <a href="/add" class="btn btn-sm btn-outline-success mt-2">Thêm ngay</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box p-3 border rounded text-center h-100 hover-effect">
+                        <i class="fas fa-chart-bar fa-3x text-info mb-3"></i>
+                        <h4>Thống kê</h4>
+                        <p>Xem các báo cáo thống kê về sinh viên</p>
+                        <a href="/about" class="btn btn-sm btn-outline-info mt-2">Xem thống kê</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

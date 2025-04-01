@@ -12,6 +12,11 @@ import java.util.List;
 public class SinhVien_controller {
     private List<SinhVien> danhSachSV = new ArrayList<>();
 
+    @ModelAttribute("danhSachSV")
+    public List<SinhVien> getDanhSachSV() {
+        return danhSachSV;
+    }
+
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("title", "Trang Chủ");
@@ -30,7 +35,6 @@ public class SinhVien_controller {
     public String list(Model model) {
         model.addAttribute("title", "Danh Sách Sinh Viên");
         model.addAttribute("contentPage", "list-content.html");
-        model.addAttribute("danhSachSV", danhSachSV);
         return "layout";
     }
 
@@ -45,6 +49,6 @@ public class SinhVien_controller {
     @PostMapping("/add")
     public String addSinhVien(@ModelAttribute SinhVien sinhVien) {
         danhSachSV.add(sinhVien);
-        return "redirect:/list";
+        return "redirect:/list?success=true";
     }
 }

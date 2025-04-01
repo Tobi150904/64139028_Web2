@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="sidebar" class="sidebar-content p-4 rounded">
+        <div class="sidebar-image-container mb-4">
+            <img th:src="@{/images/sidebar-image.jpg}" alt="Sidebar Image" class="img-fluid rounded">
+        </div>
+        <h3 class="sidebar-title">Quick Links</h3>
+        <ul class="sidebar-links">
+            <li><a href="#"><i class="fas fa-chart-line me-2"></i> Dashboard</a></li>
+            <li><a href="#"><i class="fas fa-users me-2"></i> Users</a></li>
+            <li><a href="#"><i class="fas fa-cog me-2"></i> Settings</a></li>
+            <li><a href="#"><i class="fas fa-question-circle me-2"></i> Help</a></li>
+        </ul>
+        <div class="sidebar-stats mt-4 p-3 rounded">
+            <h4>System Stats</h4>
+            <div class="stat-item">
+                <span>Memory Usage</span>
+                <div class="progress mt-1">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 65%"></div>
+                </div>
+            </div>
+            <div class="stat-item mt-2">
+                <span>CPU Load</span>
+                <div class="progress mt-1">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 45%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

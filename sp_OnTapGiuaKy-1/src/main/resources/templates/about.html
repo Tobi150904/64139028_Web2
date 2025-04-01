@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout(~{::section}, 'about')}">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <section>
+        <div class="container py-5">
+            <h1 class="display-4 fw-bold text-gradient">About Us</h1>
+            <div class="row mt-4">
+                <div class="col-lg-6">
+                    <div class="about-content p-4 rounded">
+                        <h2 class="mb-4">Our Mission</h2>
+                        <p>To provide the best Spring Boot Admin dashboard with beautiful UI and excellent user experience.</p>
+                        <p>We believe in creating software that is not only functional but also visually appealing and intuitive to use.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-content p-4 rounded">
+                        <h2 class="mb-4">Our Team</h2>
+                        <p>Our team consists of experienced Spring Boot developers and UI/UX designers who are passionate about creating amazing web applications.</p>
+                        <p>We combine technical expertise with creative design to deliver outstanding results.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <h2 class="mb-4">Technologies We Use</h2>
+                <div class="tech-stack">
+                    <span class="tech-item">Spring Boot</span>
+                    <span class="tech-item">Thymeleaf</span>
+                    <span class="tech-item">Bootstrap 5</span>
+                    <span class="tech-item">Spring Security</span>
+                    <span class="tech-item">JavaScript</span>
+                    <span class="tech-item">CSS3</span>
+                    <span class="tech-item">HTML5</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,31 +1,70 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-    <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h1 class="card-title mb-0">Danh Sách Sinh Viên</h1>
-            <a href="/add" class="btn btn-success">Thêm Mới</a>
+    <div class="card border-0 shadow-lg">
+        <div class="card-header bg-gradient-primary text-white d-flex justify-content-between align-items-center">
+            <h3 class="card-title mb-0">
+                <i class="fas fa-users me-2"></i>
+                Danh Sách Sinh Viên
+            </h3>
+            <a href="/add" class="btn btn-light">
+                <i class="fas fa-plus me-2"></i>Thêm mới
+            </a>
         </div>
         <div class="card-body">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>MSSV</th>
-                        <th>Tên</th>
-                        <th>Điểm</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="sv : ${danhSachSV}">
-                        <td th:text="${sv.mssv}"></td>
-                        <td th:text="${sv.ten}"></td>
-                        <td th:text="${sv.diem}"></td>
-                    </tr>
-                    <tr th:if="${#lists.isEmpty(danhSachSV)}">
-                        <td colspan="3" class="text-center">Chưa có sinh viên nào</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th width="20%">MSSV</th>
+                            <th width="40%">Tên</th>
+                            <th width="20%">Điểm</th>
+                            <th width="20%" class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="sv,stat : ${danhSachSV}" class="table-row-hover">
+                            <td th:text="${sv.mssv}"></td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img th:src="@{'/images/avatars/' + ${sv.mssv} + '.jpg'}" 
+                                         class="rounded-circle me-3" width="40" height="40"
+                                         onerror="this.src='/images/default-avatar.png'">
+                                    <span th:text="${sv.ten}"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress" style="height: 20px;">
+                                    <div class="progress-bar" 
+                                         th:classappend="${sv.diem} >= 8 ? 'bg-success' : (${sv.diem} >= 5 ? 'bg-warning' : 'bg-danger')"
+                                         th:style="'width:' + ${sv.diem*10} + '%'"
+                                         th:text="${sv.diem}">
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-outline-primary me-2" 
+                                        data-bs-toggle="tooltip" title="Sửa">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger" 
+                                        data-bs-toggle="tooltip" title="Xóa">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr th:if="${#lists.isEmpty(danhSachSV)}">
+                            <td colspan="4" class="text-center py-4">
+                                <i class="fas fa-users-slash fa-3x text-muted mb-3"></i>
+                                <h5 class="text-muted">Chưa có sinh viên nào</h5>
+                                <a href="/add" class="btn btn-primary mt-2">
+                                    <i class="fas fa-plus me-2"></i>Thêm sinh viên đầu tiên
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>
