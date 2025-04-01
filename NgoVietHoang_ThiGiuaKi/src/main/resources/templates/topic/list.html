@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Topic List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div th:replace="~{dashboard :: sidebar}"></div>
+    <div class="col-md-9 col-lg-10 p-4">
+        <h2>Topic List</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Topic Name</th>
+                    <th>Supervisor Id</th>
+                    <th>Topic Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="topic : ${topics}">
+                    <td th:text="${topic.id}"></td>
+                    <td th:text="${topic.topicName}"></td>
+                    <td th:text="${topic.supervisorId}"></td>
+                    <td th:text="${topic.topicType}"></td>
+                    <td>
+                        <a th:href="@{/topic/view/{id}(id=${topic.id})}" class="btn btn-info btn-sm">View</a>
+                        <a th:href="@{/topic/delete/{id}(id=${topic.id})}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/topic/new" class="btn btn-primary">Add New Topic</a>
+    </div>
+</body>
+</html>
